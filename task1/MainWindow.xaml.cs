@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace task1
+namespace SweetShop
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

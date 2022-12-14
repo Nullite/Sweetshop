@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task1
+namespace SweetShop
 {
     internal class NotifyClass : INotifyPropertyChanged
     {

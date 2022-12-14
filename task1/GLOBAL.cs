@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using task1.Model;
+using SweetShop.Model;
 
-namespace task1
+namespace SweetShop
 {
     internal class GLOBAL
     {

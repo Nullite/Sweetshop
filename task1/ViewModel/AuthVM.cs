@@ -5,9 +5,9 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using task1.Model;
+using SweetShop.Model;
 
-namespace task1.ViewModel
+namespace SweetShop.ViewModel
 {
     internal class AuthVM : NotifyClass
     {

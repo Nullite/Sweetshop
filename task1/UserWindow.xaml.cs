@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace task1
+namespace SweetShop
 {
     /// <summary>
     /// Логика взаимодействия для UserWindow.xaml

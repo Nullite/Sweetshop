@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace task1.Model
+namespace SweetShop.Model
+
 {
     internal class User
     {
