@@ -28,6 +28,8 @@ namespace SweetShop
         private void Auth(object sender, RoutedEventArgs e)
         {
             AuthWindow authWindow = new AuthWindow();
+            //Для того, чтобы при закрытии окна авторизации мы могли закрыть MainWindow,
+            //указываем, что владельцем окна авторизации является данное окно.
             authWindow.Owner = this;
             authWindow.ShowDialog();
         }

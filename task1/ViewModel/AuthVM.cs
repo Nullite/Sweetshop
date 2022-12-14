@@ -11,7 +11,9 @@ namespace SweetShop.ViewModel
 {
     internal class AuthVM : NotifyClass
     {
+        //счетчик неудачных попыток входа
         const int FAIL_COUNT = 3;
+        //Количесво секунд блокировки кнопки "Войти"
         const int PAUSE = 10;
         private int _fail_Count;
         private string _message;
@@ -19,7 +21,6 @@ namespace SweetShop.ViewModel
         private string _userName { get; set; }
         public AuthVM()
         {
-            Message = "";
             FailCount = FAIL_COUNT;
             IsEnabledAuth = true;
         }
@@ -34,6 +35,8 @@ namespace SweetShop.ViewModel
                     _fail_Count = value;
                     Message = $"Auth tries: {_fail_Count}";
                 }
+                //при достижении счетчиком нуля сбасываем счетчик и запускаем асинхронный
+                //метод блокироки кнопки входа.
                 else
                 {
                     FailCount = FAIL_COUNT;
@@ -45,20 +48,24 @@ namespace SweetShop.ViewModel
         public string UserName
         {
             get => _userName;
+            //при изменении UserName (привязан к textBlock.Text на форме AuthWindow) запускаем метод перерисовки компонентов на форме.
             set 
             { 
                 _userName = value; 
+                //Метод перерисовки унаследован от класса NotifyClass
                 OnPropertyChanged(); 
             }
         }
         public string Message
         {
             get => _message;
-            set 
+            //при изменении Message (привязан к textBlock.Text на форме AuthWindow) запускаем метод перерисовки компонентов на форме.
+            set
             {   _message = value;
                 OnPropertyChanged();
             }
         }
+        //Асинхронный метод блокировки кнопки входа на заданное количество секунд.
         private async Task StartPause()
         {
             IsEnabledAuth = false;
@@ -73,12 +80,14 @@ namespace SweetShop.ViewModel
         public bool IsEnabledAuth
         {
             get => _isEnabledAuth;
+            //при изменении IsEnabledAuth (привязана к свойству Button.isEnabled на форме AuthWindow) запускаем метод перерисовки компонентов на форме.
             set
             {
                 _isEnabledAuth = value;
                 OnPropertyChanged();
             }
         }
+        //Метод авторизации юзера в системе.
         public bool Auth(string pass)
         {
             --FailCount;
