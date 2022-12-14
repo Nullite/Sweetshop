@@ -98,7 +98,7 @@ namespace SweetShop.ViewModel
 
             if (access != null && access.IsAuth(pass))
             {
-                GLOBAL.User = access;
+                UserContext.Create(access);
                 UserName = access.Name;
                 return true;
             }

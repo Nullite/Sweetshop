@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SweetShop.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,23 @@ namespace SweetShop
     /// </summary>
     public partial class UserWindow : Window
     {
+        private PageContext _pageContext;
         public UserWindow()
         {
             InitializeComponent();
+            _pageContext = new PageContext();
+            DataContext = _pageContext;
+            _pageContext.Add(new MainPage());
+        }
+
+        private void GetMainPage(object sender, RoutedEventArgs e)
+        {
+            _pageContext.ChangeRoot(new MainPage());
+        }
+
+        private void GetOrdersPage(object sender, RoutedEventArgs e)
+        {
+            _pageContext.ChangeRoot(new OrdersPage());
         }
     }
 }
