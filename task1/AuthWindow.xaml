@@ -14,6 +14,8 @@
             <SolidColorBrush Color="DarkCyan"/>
         </x:Array>
     </Window.DataContext>
+    <!--Привязываем переменную Message класса AuthVM, являющемуся DataContext для AuthWindow,
+    триггер для изменения textBlock.Text - изменение поля Message в DataContext-->
     <Grid
         Grid.IsSharedSizeScope="True">
         <TextBlock
@@ -32,6 +34,7 @@
                 </Grid.ColumnDefinitions>
                 <Label
                     Content="Login"/>
+                <!--Привязываем переменную UserLogin,триггер для изменения -  потеря фокуса-->
                 <TextBox
                     Text="{Binding UserLogin, Mode=TwoWay, UpdateSourceTrigger=LostFocus}"
                     Grid.Column="1"/>
@@ -49,6 +52,10 @@
                     x:Name="passBox"
                     Grid.Column="1"/>
             </Grid>
+            <!--Привязываем переменную IsEnabledAuth для отключения 
+            кнопки на время блокировки входа.
+            Background для кнопки привязан из массива SolidColorBrush
+            в DataContext окна-->
             <Button
                 Content="Sign in"
                 Height="50"
@@ -66,6 +73,8 @@
                 </TextBlock>
             </Label>
         </StackPanel>
+        <!--Привязываем переменную UserName,триггер для изменения - изменение источника
+        если значение источника null - задано значение Text по умолчанию. -->
         <TextBlock
             HorizontalAlignment="Center"
             VerticalAlignment="Bottom"
