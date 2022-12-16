@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="UserWindow" Height="450" Width="800">
     <Grid>
-        <!--Привязывем текущую выбраннуб страницу класса PageContext, являющуюся DataContext для 
+        <!--Привязывем текущую выбранную страницу класса PageContext, являющуюся DataContext для 
         окна UserWindow-->
         <ContentPresenter
             Margin="50 0 0 0"

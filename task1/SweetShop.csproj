@@ -58,6 +58,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderProduct.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="Set\GLOBAL.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
@@ -73,6 +74,7 @@
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AuthVM.cs" />
+    <Compile Include="ViewModel\OrdersVM.cs" />
     <Page Include="AuthWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

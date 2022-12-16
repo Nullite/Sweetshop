@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SweetShop.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace SweetShop.Pages
     /// </summary>
     public partial class OrdersPage : UserControl
     {
+        private OrdersVM _vm;
         public OrdersPage()
         {
             InitializeComponent();
+            _vm = new OrdersVM();
+            DataContext = _vm;
         }
     }
 }

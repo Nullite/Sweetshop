@@ -93,7 +93,7 @@ namespace SweetShop.ViewModel
             --FailCount;
             if (UserLogin == null || pass == null) return false;
 
-            UsersDB context = new UsersDB();
+            UsersDB context = UsersDB.Context;
             User access = context.Users.Where(user => user.Login == UserLogin).FirstOrDefault();
 
             if (access != null && access.IsAuth(pass))
