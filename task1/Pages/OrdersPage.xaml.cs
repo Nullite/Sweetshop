@@ -28,5 +28,10 @@ namespace SweetShop.Pages
             _vm = new OrdersVM();
             DataContext = _vm;
         }
+
+        private void FindOrders(object sender, RoutedEventArgs e)
+        {
+            _vm.SearchText = SearchOrdersTextBox.Text;
+        }
     }
 }
