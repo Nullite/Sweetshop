@@ -1,6 +1,8 @@
-﻿using SweetShop.ViewModel;
+﻿using SweetShop.Model;
+using SweetShop.ViewModel;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,7 +33,18 @@ namespace SweetShop.Pages
 
         private void FindOrders(object sender, RoutedEventArgs e)
         {
-            _vm.SearchText = SearchOrdersTextBox.Text;
+            _vm.UpdateOrders();
+        }
+
+        private void DeleteOrders(object sender, RoutedEventArgs e)
+        {
+            _vm.SelectedOrders = OrdersLV.SelectedItems.Cast<Order>().ToList();
+            _vm.DeleteOrders();
+        }
+
+        private void ChangeOrder(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

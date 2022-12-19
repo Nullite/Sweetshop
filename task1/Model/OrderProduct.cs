@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SweetShop.Model
 {
-    internal class OrderProduct
+    public class OrderProduct
     {
         public Product product { get; set; }
         public int Quantity { get; set; }

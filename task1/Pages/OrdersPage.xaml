@@ -14,9 +14,11 @@
             <RowDefinition
                 Height="25"/>
         </Grid.RowDefinitions>
-        <Grid>
-            <DockPanel
-                Margin="10">
+        <Grid
+            Grid.Row="0">
+            <Grid
+                Margin="10"
+                VerticalAlignment="Center">
                 <DockPanel
                     Height="20"
                     Width="300"
@@ -27,15 +29,30 @@
                         Content="Search"
                         Click="FindOrders"/>
                     <TextBox
-                        x:Name="SearchOrdersTextBox"/>
+                        x:Name="SearchOrdersTextBox"
+                        Text="{Binding Path=SearchText}"/>
                 </DockPanel>
-            </DockPanel>
+                <UniformGrid
+                    Width="300"
+                    HorizontalAlignment="Left"
+                    Columns="3">
+                    <Button
+                        Content="Add"/>
+                    <Button
+                        Content="Delete"
+                        Click="DeleteOrders"/>
+                    <Button
+                        Content="Change"
+                        Click="ChangeOrder"/>
+                </UniformGrid>
+            </Grid>
         </Grid>
         <ListView
             Grid.Row="1"
             ItemsSource="{Binding Path=Orders}"
             ScrollViewer.VerticalScrollBarVisibility="Auto"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            x:Name="OrdersLV">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel
@@ -88,5 +105,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StatusBar
+            Grid.Row="2">
+            <TextBlock
+                Text="{Binding ElementName=OrdersLV, 
+                Path=SelectedItems.Count, 
+                StringFormat='Заказов выделено: {0}',
+                UpdateSourceTrigger=PropertyChanged}"/>
+        </StatusBar>
     </Grid>
 </UserControl>
