@@ -29,5 +29,15 @@ namespace SweetShop.Pages
             _vm = new OrderCRUD_VM(order);
             DataContext = _vm;
         }
+
+        private void DeleteProduct(object sender, RoutedEventArgs e)
+        {
+            _vm.Delete();
+        }
+
+        private void DataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            _vm.OnPropertyChanged(nameof(_vm.Price));
+        }
     }
 }

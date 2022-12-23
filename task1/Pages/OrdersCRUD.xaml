@@ -24,7 +24,7 @@
                     <Label
                         Content="ID заказа"/>
                     <TextBlock
-                        Text="1"
+                        Text="{Binding Path=id}"
                         Grid.Column="1"/>
                 </Grid>
                 <Grid>
@@ -36,7 +36,8 @@
                     <Label
                         Content="Дата заказа"/>
                     <DatePicker
-                        Grid.Column="1"/>
+                        Grid.Column="1"
+                        SelectedDate="{Binding Path=Date}"/>
                 </Grid>
 
                 <Grid>
@@ -48,7 +49,8 @@
                     <Label
                         Content="Клиент"/>
                     <TextBox
-                        Grid.Column="1"/>
+                        Grid.Column="1"
+                        Text="{Binding Path=Client}"/>
                 </Grid>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -59,7 +61,7 @@
                     <Label
                         Content="Количество продукции"/>
                     <TextBlock
-                        Text="2"
+                        Text="{Binding Path=Products.Count}"
                         Grid.Column="1"/>
                 </Grid>
                 <Grid>
@@ -71,7 +73,7 @@
                     <Label
                         Content="Итого"/>
                     <TextBlock
-                        Text="4"
+                        Text="{Binding Path=Price}"
                         Grid.Column="1"/>
                 </Grid>
             </StackPanel>
@@ -84,21 +86,46 @@
                     Height="Auto"/>
             </Grid.RowDefinitions>
             <DataGrid
-                AutoGenerateColumns="False">
+                RowEditEnding="DataGrid_RowEditEnding"
+                SelectedItem="{Binding Path=SelectProduct}"
+                AutoGenerateColumns="False"
+                ItemsSource="{Binding Path=Products}"
+                CanUserAddRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn
                         Header="№"/>
                     <DataGridTextColumn
                         Header="Наименование"
-                        Width="Auto"/>
+                        Width="Auto"
+                        Binding="{Binding Path=Product.Name}"
+                        IsReadOnly="True"/>
                     <DataGridTextColumn
-                        Header="Количество"/>
+                        Header="Количество"
+                        Binding="{Binding Path=Quantity,UpdateSourceTrigger=PropertyChanged}"/>
                     <DataGridTextColumn
-                        Header="Цена"/>
+                        Header="Цена"
+                        Binding="{Binding Path=Product.Price}"
+                        IsReadOnly="True"/>
                     <DataGridTextColumn
-                        Header="Сумма"/>
+                        Header="Сумма"
+                        Binding="{Binding Path=Price}"
+                        IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <Grid
+                Grid.Row="1">
+                <UniformGrid
+                    Width="150"
+                    Columns="2">
+                    <Button
+                        Content="Add"
+                        Margin="0 0 5 0"/>
+                    <Button
+                        Content="Delete"
+                        Margin="5 0 0 0"
+                        Click="DeleteProduct"/>
+                </UniformGrid>
+            </Grid>
         </Grid>
     </Grid>
 </UserControl>

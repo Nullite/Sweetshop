@@ -20,23 +20,23 @@ namespace SweetShop
     /// </summary>
     public partial class UserWindow : Window
     {
-        private PageContext _pageContext;
+        
         public UserWindow()
         {
             InitializeComponent();
-            _pageContext = new PageContext();
-            DataContext = _pageContext;
-            _pageContext.Add(new MainPage());
+            
+            DataContext = PageContext.CurrentPageContext;
+            PageContext.CurrentPageContext.Add(new MainPage());
         }
         //получение главной страницы по событию Button.Click на окне UserWindow через замену корневой страницы _pageContext.
         private void GetMainPage(object sender, RoutedEventArgs e)
         {
-            _pageContext.ChangeRoot(new MainPage());
+            PageContext.CurrentPageContext.ChangeRoot(new MainPage());
         }
         //получение страницы с заказами по событию Button.Click на окне UserWindow через замену корневой страницы _pageContext.
         private void GetOrdersPage(object sender, RoutedEventArgs e)
         {
-            _pageContext.ChangeRoot(new OrdersPage());
+            PageContext.CurrentPageContext.ChangeRoot(new OrdersPage());
         }
     }
 }

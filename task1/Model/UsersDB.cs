@@ -19,9 +19,9 @@ namespace SweetShop.Model
                     Client = "Игорь", ID = 1, Date = new DateTime(2022, 12, 10),
                     Products = new ObservableCollection<OrderProduct>()
                     {
-                        new OrderProduct() {product = Products.First(x => x.ID == 1), Quantity = 1},
-                        new OrderProduct() {product = Products.First(x => x.ID == 4), Quantity = 1},
-                        new OrderProduct() {product = Products.First(x => x.ID == 8), Quantity = 3},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 1), Quantity = 1},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 4), Quantity = 1},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 8), Quantity = 3},
                     }
                 },
                 new Order()
@@ -29,9 +29,9 @@ namespace SweetShop.Model
                     Client = "Вася", ID = 2, Date = new DateTime(2022, 10, 11),
                     Products = new ObservableCollection<OrderProduct>()
                     {
-                        new OrderProduct() {product = Products.First(x => x.ID == 2), Quantity = 2},
-                        new OrderProduct() {product = Products.First(x => x.ID == 3), Quantity = 1},
-                        new OrderProduct() {product = Products.First(x => x.ID == 6), Quantity = 1},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 2), Quantity = 2},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 3), Quantity = 1},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 6), Quantity = 1},
                     }
                 },
                 new Order()
@@ -39,8 +39,8 @@ namespace SweetShop.Model
                     Client = "Петя", ID = 3, Date = new DateTime(2022, 11, 11),
                     Products = new ObservableCollection<OrderProduct>()
                     {
-                        new OrderProduct() {product = Products.First(x => x.ID == 1), Quantity = 2},
-                        new OrderProduct() {product = Products.First(x => x.ID == 5), Quantity = 2},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 1), Quantity = 2},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 5), Quantity = 2},
                     }
                 },
                 new Order()
@@ -48,8 +48,8 @@ namespace SweetShop.Model
                     Client = "Маша", ID = 4, Date = new DateTime(2022, 11, 10),
                     Products = new ObservableCollection<OrderProduct>()
                     {
-                        new OrderProduct() {product = Products.First(x => x.ID == 4), Quantity = 1},
-                        new OrderProduct() {product = Products.First(x => x.ID == 6), Quantity = 1},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 4), Quantity = 1},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 6), Quantity = 1},
                     }
                 },
                 new Order()
@@ -57,7 +57,7 @@ namespace SweetShop.Model
                     Client = "Юля", ID = 5, Date = new DateTime(2022, 12, 10),
                     Products = new ObservableCollection<OrderProduct>()
                     {
-                        new OrderProduct() {product = Products.First(x => x.ID == 5), Quantity = 4},
+                        new OrderProduct() {Product = Products.First(x => x.ID == 5), Quantity = 4},
                     }
                 },
             };

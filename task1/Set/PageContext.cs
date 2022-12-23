@@ -9,6 +9,7 @@ namespace SweetShop
 {
     internal class PageContext : NotifyClass
     {
+        private static PageContext _currentPageContext = new PageContext();
         private Stack<UserControl> _pages = new Stack<UserControl> ();
         public UserControl Current { get; private set; }
         public void Add(UserControl page)
@@ -16,6 +17,14 @@ namespace SweetShop
             _pages.Push (page);
             Current = page;
             OnPropertyChanged("Current");
+        }
+        public static PageContext CurrentPageContext
+        {
+            get => _currentPageContext;
+            set
+            {
+                if (_currentPageContext == null) _currentPageContext = value;
+            }
         }
         public void Drop()
         {

@@ -13,7 +13,7 @@ namespace SweetShop.Model
         public DateTime Date { get; set; }
         public string Client { get; set; }
         public ObservableCollection<OrderProduct> Products;
-        public decimal Price { get => Products.Sum(p => p.product.Price * p.Quantity); }
+        public decimal Price { get => Products.Sum(p => p.Product.Price * p.Quantity); }
         public decimal Quantity => Products.Count;
     }
 }

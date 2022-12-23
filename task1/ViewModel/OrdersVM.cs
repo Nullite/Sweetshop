@@ -33,7 +33,7 @@ namespace SweetShop.ViewModel
                     || (int.TryParse(SearchText, out int ID) && o.ID == ID)
                     || o.Client.ToLower().Contains(SearchText.ToLower())
                     || (DateTime.TryParse(SearchText, out DateTime dt) && o.Date == dt)
-                    || o.Products.FirstOrDefault(p => p.product.Name.ToLower().Contains(SearchText.ToLower()))!=null).ToList();
+                    || o.Products.FirstOrDefault(p => p.Product.Name.ToLower().Contains(SearchText.ToLower()))!=null).ToList();
             OnPropertyChanged("Orders");
         }
         public void DeleteOrders()

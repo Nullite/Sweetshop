@@ -44,7 +44,14 @@ namespace SweetShop.Pages
 
         private void ChangeOrder(object sender, RoutedEventArgs e)
         {
-
+            _vm.SelectedOrders = OrdersLV.SelectedItems.Cast<Order>().ToList();
+            Order order = _vm.SelectedOrders.FirstOrDefault();
+            if (order != null)
+            {
+                var page = new OrdersCRUD(order);
+                PageContext.CurrentPageContext.Add(page);
+            }
+            
         }
     }
 }

@@ -6,9 +6,20 @@ using System.Threading.Tasks;
 
 namespace SweetShop.Model
 {
-    public class OrderProduct
+    public class OrderProduct : NotifyClass
     {
-        public Product product { get; set; }
-        public int Quantity { get; set; }
+        private int _quantity;
+        public Product Product { get; set; }
+        public int Quantity
+        {
+            get => _quantity;
+            set
+            {
+                _quantity = value;
+                OnPropertyChanged();
+                OnPropertyChanged("Price");
+            }
+        }
+        public decimal Price => Product.Price * Quantity;
     }
 }
