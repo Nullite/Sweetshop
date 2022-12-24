@@ -75,9 +75,12 @@ namespace SweetShop.ViewModel
                 OnPropertyChanged();
             }
         }
-        public void Add()
+        public void Add(Product p)
         {
-
+            var s = Products.FirstOrDefault(x => x.Product.ID == p.ID);
+            if (s != null) ++s.Quantity;
+            else Products.Add(new OrderProduct { Product = p, Quantity = 1});
+            OnPropertyChanged("Price");
         }
         public void Delete()
         {

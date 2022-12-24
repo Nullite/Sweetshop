@@ -57,11 +57,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\QuantityConverter.cs" />
+    <Compile Include="Model\Folder.cs" />
+    <Compile Include="Model\INode.cs" />
     <Compile Include="Model\Order.cs" />
     <Compile Include="Model\OrderProduct.cs" />
     <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\ProductNode.cs" />
     <Compile Include="Pages\OrdersCRUD.xaml.cs">
       <DependentUpon>OrdersCRUD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SelectProductWindow.xaml.cs">
+      <DependentUpon>SelectProductWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Set\GLOBAL.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
@@ -110,6 +117,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SelectProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,7 +154,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="resourses\capcake.jpg" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="resourses\apple-pie.jpg" />
     <Resource Include="resourses\cafeBack2.jpg" />
@@ -151,6 +164,15 @@
     <Resource Include="resourses\candy.png" />
     <Resource Include="resourses\Lollipop.png" />
     <Resource Include="resourses\purepng.com-christmas-candy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resourses\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resourses\kofe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resourses\tort.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

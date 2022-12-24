@@ -39,5 +39,12 @@ namespace SweetShop.Pages
         {
             _vm.OnPropertyChanged(nameof(_vm.Price));
         }
+
+        private void AddProduct(object sender, RoutedEventArgs e)
+        {
+            var select = new SelectProductWindow();
+            select.ShowDialog();
+            if (select.SelectProduct != null) _vm.Add(select.SelectProduct);
+        }
     }
 }

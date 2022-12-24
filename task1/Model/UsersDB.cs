@@ -9,8 +9,8 @@ namespace SweetShop.Model
 {
     internal class UsersDB
     {
-        private static  UsersDB _context;
-        private UsersDB ()
+        private static UsersDB _context;
+        private UsersDB()
         {
             Orders = new ObservableCollection<Order>()
             {
@@ -61,8 +61,76 @@ namespace SweetShop.Model
                     }
                 },
             };
+            Folders = new List<Folder>()
+            {
+                new Folder 
+                {
+                    Name = "Шоколад", 
+                    nodes= new List<INode>() 
+                    {
+                        new Folder 
+                        {
+                            Name = "Подпапка", 
+                            nodes = new List<INode>()
+                            {
+                                new ProductNode(Products.First(p=> p.ID == 8)),
+                                new ProductNode(Products.First(p => p.ID == 9)) 
+                            } 
+                        }
+                    }
+                },
+                new Folder
+                {
+                    Name = "Напитки", 
+                    nodes= new List<INode>()
+                    {
+                        new Folder
+                        {
+                            Name = "Подпапка", 
+                            nodes = new List<INode>()
+                            {
+                                new ProductNode(Products.First(p=> p.ID == 3)),
+                                new ProductNode(Products.First(p => p.ID == 4)),
+                                new ProductNode(Products.First(p =>p.ID == 5))
+                            }
+                        }
+                    }
+                },
+                new Folder
+                {
+                    Name = "Торты", 
+                    nodes= new List<INode>()
+                    {
+                        new Folder
+                        {
+                            Name = "Подпапка", 
+                            nodes = new List<INode>()
+                            {
+                                new ProductNode(Products.First(p=> p.ID == 2)),
+                                new ProductNode(Products.First(p => p.ID == 7))
+                            }
+                        }
+                    }
+                },
+                new Folder
+                {
+                    Name = "Пирожные", 
+                    nodes= new List<INode>()
+                    {
+                        new Folder 
+                        {
+                            Name = "Подпапка", 
+                            nodes = new List<INode>()
+                            {
+                                new ProductNode(Products.First(p=> p.ID == 1)),
+                                new ProductNode(Products.First(p => p.ID == 6))
+                            }
+                        }
+                    }
+                }
+            };
         }
-        public static UsersDB Context => _context?? (_context = new UsersDB());
+        public static UsersDB Context => _context ?? (_context = new UsersDB());
         public ObservableCollection<Order> Orders { get; set; }
         public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>()
         {
@@ -84,6 +152,7 @@ namespace SweetShop.Model
             new Product() {ID = 8, Name = "Шоколад темный", Price = 150M},
             new Product() {ID = 9, Name = "Шоколад белый", Price = 120M},
         };
+        public List<Folder> Folders { get; set; }
         
     }
 }
